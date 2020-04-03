@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Inline Editor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js'></script>
+        
+        <script src='inline.js'></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+    </head>
+    <body>
+        
+        
+<div id="main" ng-app ng-controller="InlineEditorController" ng-click="hideTooltip()">
+
+	
+	<div class="tooltip" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+
+		<input type="text" ng-model="value" />
+	</div>
+
+	<p ng-click="toggleTooltip($event)">{{value}}</p>
+
+</div>
+        
+        
+    </body>
+</html>

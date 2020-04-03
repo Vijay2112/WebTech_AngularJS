@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link href="style.css" rel="stylesheet" />
+<title>Search Engine</title>
+    </head>
+<body>
+
+    <h2><i> Search </i></h2>
+<div  ng-app="myApp" ng-controller="namesCtrl">
+
+ <div class='tooltip'>
+    <input type="text" ng-model="fn" ng-value="fa"><br>
+ </div>
+   <br/>
+  <div style="position: relative;bottom: 10px;" ng-repeat="x in names | orderBy:'name'">
+  	
+    {{ func(x) }}
+
+  </div>
+
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Carl',country:'US'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+        
+    $scope.func=function(x){
+    	var d1 = angular.uppercase($scope.fn) ;
+        var d2 = angular.uppercase(x.name) ;
+    	if(d2.includes(d1) && $scope.fn!="")
+        	return x.name +" , "+ x.country +"\n";
+    }
+    
+});
+</script>
+
+</body>
+</html>
